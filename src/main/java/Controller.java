@@ -16,6 +16,10 @@ public class Controller {
         app.get("/sendMessagesFrom/:userId", ctx -> {
             ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
         });
+
+        app.get("/sendMessagesFor/:userId", ctx -> {
+            ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
+        });
     }
 
 }
