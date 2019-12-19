@@ -13,12 +13,12 @@ public class Controller {
             StorageController.addMessage(GSONConverter.GSONToMessage(ctx.body()));
         });
 
-        app.get("/sendMessagesFrom/:userId", ctx -> {
+        app.get("/loadMessagesFrom/:userId", ctx -> {
             ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
         });
 
-        app.get("/sendMessagesFor/:userId", ctx -> {
-            ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
+        app.get("/loadMessagesFor/:userId", ctx -> {
+            ctx.result(StorageController.getAllMessagesForUser(ctx.pathParam("userId")));
         });
     }
 

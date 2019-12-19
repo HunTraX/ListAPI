@@ -26,5 +26,15 @@ public class StorageController {
         return GSONConverter.listToGSON(resultlist);
     }
 
+    public static String getAllMessagesForUser(String user){
+        List<Message> resultlist = new ArrayList<>();
+        for(Message m: storage.getMessageList()){
+            if (m.getReciever().equals(user)){
+                resultlist.add(m);
+            }
+        }
+        return GSONConverter.listToGSON(resultlist);
+    }
+
 
 }
