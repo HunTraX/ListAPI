@@ -1,3 +1,3 @@
 public enum  MessageType {
-    MESSAGE, LISTENTRY, CRITICAL
+    MESSAGE, WARNING
 }

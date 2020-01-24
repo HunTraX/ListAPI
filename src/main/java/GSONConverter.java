@@ -20,4 +20,12 @@ public class GSONConverter {
              throw e;
     }
     }
+
+    public static Warning GSONToWarning(String s){
+        try {
+            return gson.fromJson(s, Warning.class);
+        } catch (Exception e){
+            throw e;
+        }
+    }
 }

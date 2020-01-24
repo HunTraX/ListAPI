@@ -9,11 +9,11 @@ public class Message {
     private LocalDateTime timestamp;
     private MessageType type;
 
-    public Message(String content, String reciever, String sender, LocalDateTime timestamp, MessageType type) {
+    public Message(String content, String sender, MessageType type) {
         this.content = content;
-        this.reciever = reciever;
+        this.reciever = "System";
         this.sender = sender;
-        this.timestamp = timestamp;
+        this.timestamp = LocalDateTime.now();
         this.type = type;
     }
 

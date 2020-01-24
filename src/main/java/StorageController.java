@@ -36,5 +36,9 @@ public class StorageController {
         return GSONConverter.listToGSON(resultlist);
     }
 
+    public static String getAllWarnings(){
+        return "";
+    }
+
 
 }

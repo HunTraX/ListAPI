@@ -1,0 +1,3 @@
+public enum  WARNING_LEVEL {
+    LOW,MEDIUM,HIGH,CRITICAL
+}
