@@ -13,8 +13,8 @@ public class Controller {
         });
 
         app.get("/load/Warnings/:system", ctx -> {
-
-        })
+            ctx.result(StorageController.getAllWarningsForSystem("sytem"));
+        });
 
 
 

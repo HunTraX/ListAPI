@@ -40,5 +40,15 @@ public class StorageController {
         return "";
     }
 
+    public static String getAllWarningsForSystem(String system){
+        List<Warning> resultlist = new ArrayList<>();
+        for(Warning warning: storage.getWarningList()){
+            if ((warning.getSystem()).equals(system)){
+                resultlist.add(warning);
+            }
+        }
+        return GSONConverter.listToGSON(resultlist);
+    }
+
 
 }
