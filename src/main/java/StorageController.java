@@ -15,6 +15,9 @@ public class StorageController {
     public static void addMessage(Message m){
         storage.addMessage(m);
     }
+     public static void addWarning(Warning w){
+        storage.addWarning(w);
+     }
 
     public static String getAllMessagesFromUser(String user){
         List<Message> resultlist = new ArrayList<>();
@@ -49,6 +52,16 @@ public class StorageController {
         }
         return GSONConverter.listToGSON(resultlist);
     }
+    public static String getAllWarningsWithSpecificLevel(String level){
+        List<Warning> resultlist = new ArrayList<>();
+        for(Warning warning: storage.getWarningList()){
+            if ((warning.getWarning_level()).equals(level)){
+                resultlist.add(warning);
+            }
+        }
+        return GSONConverter.listToGSON(resultlist);
+    }
+
 
 
 }

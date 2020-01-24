@@ -4,6 +4,7 @@ public class Controller {
     public static void main(String[] args){
         Javalin app = Javalin.create().start(80);
 
+        // Get Methods
         app.get("/load/Messages", ctx -> {
             ctx.result(StorageController.getAllMessages());
         });
@@ -16,11 +17,8 @@ public class Controller {
             ctx.result(StorageController.getAllWarningsForSystem("sytem"));
         });
 
-
-
-        app.post("/save/Message", ctx -> {
-            System.out.println(ctx.body());
-            StorageController.addMessage(GSONConverter.GSONToMessage(ctx.body()));
+        app.get("/load/Warnings/level/:warning_Level", ctx -> {
+            ctx.result(StorageController.getAllWarningsWithSpecificLevel("warning_level"));
         });
 
         app.get("/load/Messages/from/:userId", ctx -> {
@@ -30,6 +28,19 @@ public class Controller {
         app.get("/load/Messages/For/:userId", ctx -> {
             ctx.result(StorageController.getAllMessagesForUser(ctx.pathParam("userId")));
         });
+
+        // Save Methods
+        app.post("/save/Message", ctx -> {
+            System.out.println(ctx.body());
+            StorageController.addMessage(GSONConverter.GSONToMessage(ctx.body()));
+        });
+
+        app.post("/save/Warning", ctx -> {
+            System.out.println(ctx.body());
+            StorageController.addWarning(GSONConverter.GSONToWarning(ctx.body()));
+        });
+
+
     }
 
 }
