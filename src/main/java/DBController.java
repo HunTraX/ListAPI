@@ -1,14 +1,20 @@
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.DB;
+import org.javalite.activejdbc.Model;
 
 public class DBController {
 
-	private static DB db;
+	private DB db;
 
-	private DBController(){ }
-
-	public static DB getDB(){
-		 return Base.open("org.postgresql.Driver", "jdbc:postgresql://localhost/MessageService?currentSchema=warnings", "postgres", "postgres");
+	DBController(){
+		db = Base.open("org.postgresql.Driver", "jdbc:postgresql://localhost/MessageService?currentSchema=warnings", "postgres", "postgres");
 	}
 
+	public void saveObject(Model model){
+		model.saveIt();
+	}
+
+	public void closeDB(){
+		db.close();
+	}
 }

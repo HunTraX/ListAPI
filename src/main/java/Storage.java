@@ -4,10 +4,12 @@ import java.util.List;
 public class Storage {
     private List<Message> messageList;
     private List<Warning> warningList;
+    private DBController dbController;
 
     public Storage() {
         this.messageList = new ArrayList<>();
         this.warningList = new ArrayList<>();
+        DBController dbController = new DBController();
     }
 
     public void addMessage (Message message){
@@ -23,7 +25,7 @@ public class Storage {
     }
 
     public void addWarning(Warning warning){
-        warningList.add(warning);
+        warning.saveIt();
     }
 
     public void setMessageList(List<Message> messageList) {

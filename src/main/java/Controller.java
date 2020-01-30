@@ -17,7 +17,7 @@ public class Controller {
         app.get("/load/Warnings/:system", ctx -> {
             ctx.result(StorageController.getAllWarningsForSystem(Integer.getInteger("sytem")));
         });
-        
+
 
         app.get("/load/Messages/from/:userId", ctx -> {
             ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
