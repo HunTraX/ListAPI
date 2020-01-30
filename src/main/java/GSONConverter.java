@@ -1,6 +1,8 @@
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.util.List;
+import java.util.Map;
 
 public class GSONConverter {
     private static Gson gson = new Gson();
@@ -21,9 +23,13 @@ public class GSONConverter {
     }
     }
 
-    public static Warning GSONToWarning(String s){
+    public static Warning GSONToWarning(JsonObject jsonObject){
         try {
-            return gson.fromJson(s, Warning.class);
+            Warning warning = new Warning();
+            for (Map.Entry entry: jsonObject.entrySet()){
+                warning.set(entry.getKey().toString(), StringUtil.stringToObject(entry.getValue().toString()));
+            }
+            return warning;
         } catch (Exception e){
             throw e;
         }
