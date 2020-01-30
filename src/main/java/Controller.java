@@ -23,10 +23,10 @@ public class Controller {
             ctx.result(StorageController.getAllMessages());
         });
 
-        /*app.get("/load/Warnings/:system", ctx -> {
-            ctx.result(StorageController.getAllWarningsForSystem("sytem"));
+        app.get("/load/Warnings/:system", ctx -> {
+            ctx.result(StorageController.getAllWarningsForSystem(Integer.getInteger("sytem")));
         });
-
+        /*
         app.get("/load/Warnings/level/:warning_Level", ctx -> {
             ctx.result(StorageController.getAllWarningsWithSpecificLevel("warning_level"));
         });*/
