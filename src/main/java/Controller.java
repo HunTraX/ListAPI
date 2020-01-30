@@ -5,15 +5,6 @@ import org.javalite.activejdbc.DB;
 public class Controller {
     public static void main(String[] args){
         Javalin app = Javalin.create().start(80);
-
-        DB db = DBController.getDB();
-        Warning w = new Warning();
-        w.setInteger("system", 222432);
-        w.setString("message", "asdfgdsagasd");
-        w.saveIt();
-        db.close();
-
-
         // Get Methods
         app.get("/load/Messages", ctx -> {
             ctx.result(StorageController.getAllMessages());
@@ -26,10 +17,7 @@ public class Controller {
         app.get("/load/Warnings/:system", ctx -> {
             ctx.result(StorageController.getAllWarningsForSystem(Integer.getInteger("sytem")));
         });
-        /*
-        app.get("/load/Warnings/level/:warning_Level", ctx -> {
-            ctx.result(StorageController.getAllWarningsWithSpecificLevel("warning_level"));
-        });*/
+        
 
         app.get("/load/Messages/from/:userId", ctx -> {
             ctx.result(StorageController.getAllMessagesFromUser(ctx.pathParam("userId")));
